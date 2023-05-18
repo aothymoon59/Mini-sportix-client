@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaSignOutAlt } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const Navbar = () => {
@@ -106,19 +106,24 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <>
+            <div
+              className="tooltip tooltip-left"
+              data-tip={user?.displayName || "Anonymous User"}
+            >
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} />
+                    <img src={user?.photoURL} alt={user?.displayName} />
                   </div>
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  className="menu menu-compact bg-blue-100 dropdown-content mt-3 p-2 shadow font-medium rounded-box w-52"
                 >
                   <li>
-                    <Link onClick={handleLogOut}>Logout</Link>
+                    <Link onClick={handleLogOut}>
+                      Logout <FaSignOutAlt />
+                    </Link>
                   </li>
                   <li>
                     <Link className="justify-between">
@@ -131,7 +136,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </>
+            </div>
           ) : (
             <Link
               to="/login"

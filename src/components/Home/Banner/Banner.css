@@ -45,15 +45,6 @@ body {
     margin-right: auto;
 }
 
-.slider-content {
-    bottom: -148px;
-    box-shadow: 0px -5px 23px 7px rgba(0, 0, 0, 0.7);
-    left: 0;
-    right: 0;
-    margin: auto;
-    transition: all 0.3s ease-in-out;
-}
-
 :root {
     --swiper-theme-color: #2396DC;
 }
