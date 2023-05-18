@@ -25,3 +25,7 @@
 .social-btn {
     @apply flex gap-3 mx-auto justify-center items-center border font-semibold rounded-[57px] p-3 w-full cursor-pointer transition-all duration-200 ease-in-out
 }
+
+.card-shadow {
+    box-shadow: 0px 1px 23px 4px rgba(0, 0, 0, 0.2);
+}

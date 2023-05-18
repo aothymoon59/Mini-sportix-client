@@ -7,11 +7,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
   return (
-    <div className="my-container flex flex-col-reverse lg:flex-row justify-center items-center">
+    <div className="my-container flex flex-col lg:flex-row justify-center items-center">
       <div className="w-full lg:w-[60%]">
         <Lottie animationData={registerAnimation} loop={true} />
       </div>
-      <div className="w-full lg:w-[40%] bg-blue-100 px-5 py-10 rounded-xl">
+      <div className="w-full lg:w-[40%] bg-blue-100 px-5 py-10 rounded-xl card-shadow">
         <h2 className="text-3xl text-center font-semibold mb-10">
           Create an account
         </h2>

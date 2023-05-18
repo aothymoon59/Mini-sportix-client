@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <div className="my-container flex flex-col-reverse lg:flex-row justify-center items-center">
-      <div className="w-full lg:w-[40%] bg-blue-100 px-5 py-10 rounded-xl">
+      <div className="w-full lg:w-[40%] bg-blue-100 px-5 py-10 rounded-xl card-shadow">
         <h2 className="text-3xl text-center font-semibold mb-10">
           Login to your account
         </h2>
