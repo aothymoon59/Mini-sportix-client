@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-base-200 w-full">
+    <div className="bg-base-200 w-full mt-[50px] lg:mt-[120px]">
       <footer className="footer p-10 bg-base-200 text-base-content my-container">
         <div>
           <span className="text-[#2396DC] font-semibold text-lg">Services</span>
@@ -60,7 +60,7 @@ const Footer = () => {
               <FaFacebook className="text-[#1877F2]"></FaFacebook>
             </a>
             <a
-              href="https://www.youtube.com/channel/UCgkdIeCQiiOrJiPa8VrvYYQ"
+              href="https://www.youtube.com/@moonstechtime1034"
               target="_blank"
             >
               <FaYoutube className="text-[#FF0000]"></FaYoutube>
