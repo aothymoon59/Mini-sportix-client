@@ -72,17 +72,19 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <div className="flex items-center text-[#2396DC]">
-            <img
-              src={"https://i.ibb.co/R6wG4vm/logo.png"}
-              alt="MiniSportix"
-              className="w-8 h-8 md:w-12 md:h-12"
-            />
+          <Link to="/">
+            <div className="flex items-center text-[#2396DC]">
+              <img
+                src={"https://i.ibb.co/R6wG4vm/logo.png"}
+                alt="MiniSportix"
+                className="w-8 h-8 md:w-12 md:h-12"
+              />
 
-            <span className="text-2xl md:text-3xl lg:text-4xl font-semibold">
-              MiniSportix
-            </span>
-          </div>
+              <span className="text-2xl md:text-3xl lg:text-4xl font-semibold">
+                MiniSportix
+              </span>
+            </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
