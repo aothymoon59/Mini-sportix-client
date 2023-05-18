@@ -21,3 +21,7 @@
 .font-monserrat {
     font-family: 'Montserrat', sans-serif;
 }
+
+.social-btn {
+    @apply flex gap-3 mx-auto justify-center items-center border font-semibold rounded-[57px] p-3 w-full cursor-pointer transition-all duration-200 ease-in-out
+}

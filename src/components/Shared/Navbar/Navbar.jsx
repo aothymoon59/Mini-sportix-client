@@ -80,7 +80,7 @@ const Navbar = () => {
                 className="w-8 h-8 md:w-12 md:h-12"
               />
 
-              <span className="text-2xl md:text-3xl lg:text-4xl font-semibold">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold">
                 MiniSportix
               </span>
             </div>
