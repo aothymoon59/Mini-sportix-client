@@ -61,8 +61,7 @@ const Login = () => {
           </p>
         </form>
         <div className="divider mb-6">OR</div>
-        {/* <h2 className="text-2xl text-center font-semibold mb-6">Login with</h2> */}
-
+        {/* Social login  */}
         <div className="social-login flex flex-col md:flex-row gap-5 justify-center items-center">
           <button className="social-btn hover:bg-[#3cba54] text-[#3cba54] hover:text-white border-[#3cba54]">
             <FaGoogle className="text-2xl" /> Login With Google
