@@ -3,7 +3,6 @@ import Lottie from "lottie-react";
 import registerAnimation from "../../../assets/38435-register.json";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
@@ -12,7 +11,7 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -49,6 +48,7 @@ const Register = () => {
         setSuccess("User has been created successfully");
         toast.success("User has been created successfully");
         navigate("/login");
+        handleSignOutAfterReg();
         setError("");
         form.reset();
       })
@@ -70,6 +70,15 @@ const Register = () => {
         console.log(err.message);
         setError(err.message);
         toast.error(err.message);
+      });
+  };
+
+  // control(LogOut) sign in after register
+  const handleSignOutAfterReg = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => {
+        console.log(err.message);
       });
   };
 
