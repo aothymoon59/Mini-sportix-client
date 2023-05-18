@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { HiMailOpen } from "react-icons/hi";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
   const { signIn, resetPassword, signInWithGoogle, signInWithGithub } =
@@ -17,6 +18,7 @@ const Login = () => {
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   const navigate = useNavigate();
+  useTitle("Login");
 
   const handleLogin = (e) => {
     e.preventDefault();

@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
@@ -13,6 +14,7 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const { createUser, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  useTitle("Register");
 
   const handleRegister = (e) => {
     e.preventDefault();
