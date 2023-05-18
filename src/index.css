@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-container {
+    @apply container mx-auto px-5
+}
+
+.active {
+    @apply font-medium tracking-wide text-[#1d4ed8] bg-transparent
+}
+
+.default {
+    @apply font-medium tracking-wide text-black bg-transparent
+}
+
+.my-btn {
+    @apply bg-[#2396DC] text-white py-2 px-4 rounded-xl font-semibold border-2 border-[#2396DC]
+}
