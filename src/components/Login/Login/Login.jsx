@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../assets/121421-login.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -14,6 +14,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const emailRef = useRef();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,14 +24,13 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
-
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
         form.reset();
         setSuccess("Successfully login");
         toast.success("Successfully login");
+        navigate(from, { replace: true });
         setError("");
       })
       .catch((err) => {
@@ -74,7 +76,7 @@ const Login = () => {
         setSuccess("Successfully login With Google");
         toast.success("Successfully login With Google");
         setError("");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
@@ -91,7 +93,7 @@ const Login = () => {
         setSuccess("Successfully login With Github");
         toast.success("Successfully login With Github");
         setError("");
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
