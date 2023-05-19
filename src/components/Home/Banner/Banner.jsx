@@ -14,12 +14,10 @@ const Banner = () => {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 7000,
           disableOnInteraction: false,
         }}
         navigation={true}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <div className="w-full h-[80vh] lg:h-full relative">

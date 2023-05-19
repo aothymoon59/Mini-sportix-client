@@ -29,7 +29,6 @@ const AddToy = () => {
       rating,
       description,
     };
-    console.log(createdToy);
 
     fetch(
       "https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toys",
