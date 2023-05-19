@@ -9,16 +9,18 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <Puff
-        height="80"
-        width="80"
-        radius={1}
-        color="#4fa94d"
-        ariaLabel="puff-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
+      <div className="flex items-center mt-10 justify-center h-[400px]">
+        <Puff
+          height="80"
+          width="80"
+          radius={1}
+          color="#4fa94d"
+          ariaLabel="puff-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
     );
   }
   if (user) {

@@ -110,9 +110,9 @@ const AddToy = () => {
                 </option>
                 <option value="outdoor_games">Outdoor Games</option>
                 <option value="indoor_games">Indoor Games</option>
-                <option value="team_sports">Team Sports</option>
+                {/* <option value="team_sports">Team Sports</option>
                 <option value="balls">Balls</option>
-                <option value="racket_paddles">Rackets and Paddles</option>
+                <option value="racket_paddles">Rackets and Paddles</option> */}
                 <option value="ride_toys">Ride On Sports Toys</option>
               </select>
             </div>
