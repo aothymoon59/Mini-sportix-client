@@ -26,18 +26,18 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/allToys"
+          aria-label="All Toys"
+          title="All Toys"
+          className={({ isActive }) => (isActive ? "active" : "default")}
+        >
+          All Toys
+        </NavLink>
+      </li>
       {user && (
         <>
-          <li>
-            <NavLink
-              to="/allToys"
-              aria-label="All Toys"
-              title="All Toys"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              All Toys
-            </NavLink>
-          </li>
           <li>
             <NavLink
               to="/myToys"
