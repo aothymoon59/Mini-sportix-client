@@ -24,7 +24,6 @@ const AddToy = () => {
       sellerName,
       sellerEmail,
       subCategory,
-      subCategory,
       price,
       quantity,
       rating,
@@ -32,13 +31,16 @@ const AddToy = () => {
     };
     console.log(createdToy);
 
-    fetch("http://localhost:5000/toy", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(createdToy),
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toys",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(createdToy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -142,9 +144,9 @@ const AddToy = () => {
                 className="select select-bordered"
               >
                 <option value="">Pick a sub category</option>
-                <option value="outdoor_games">Outdoor Games</option>
-                <option value="indoor_games">Indoor Games</option>
-                <option value="ride_toys">Ride On Sports Toys</option>
+                <option value="Outdoor games toy">Outdoor Games</option>
+                <option value="Indoor games toy">Indoor Games</option>
+                <option value="Ride toys">Ride On Sports Toys</option>
               </select>
             </div>
             <div className="form-control md:w-1/2">

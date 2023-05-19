@@ -29,3 +29,7 @@
 .card-shadow {
     box-shadow: 0px 1px 23px 4px rgba(0, 0, 0, 0.2);
 }
+
+th {
+    background-color: #EBF8FF !important;
+}
