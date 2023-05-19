@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 const AllToys = () => {
   const [allToy, setAllToy] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true); // Initialize the loading state to true
 
   useEffect(() => {
@@ -23,6 +24,16 @@ const AllToys = () => {
 
     fetchToys();
   }, []);
+
+  const handleSearch = () => {
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toySearchByName/${searchText}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setAllToy(data);
+      });
+  };
 
   if (loading) {
     // Return a loading indicator while data is loading
@@ -44,6 +55,7 @@ const AllToys = () => {
 
   return (
     <div className="my-container">
+      {/* banner section  */}
       <div
         className="flex h-[50vh] justify-center items-center bg-[#000000] bg-opacity-[0.5] bg-blend-multiply bg-cover bg-center"
         style={{
@@ -57,6 +69,7 @@ const AllToys = () => {
         </h2>
       </div>
       <div className="mt-12 lg:mt-[120px]">
+        {/* section header */}
         <div className="section-header text-center space-y-3 mb-12 lg:mb-16">
           <h4 className="text-[#2396DC] text-lg sm:text-xl md:text-2xl font-medium">
             Playtime Paradise
@@ -66,20 +79,28 @@ const AllToys = () => {
           </h2>
         </div>
         <div className="section-body">
-          <div>
+          {/* search section */}
+          <div className="search-section">
             <div className="form-control w-[70%] lg:w-1/2 mx-auto mb-8">
               <div className="input-group">
                 <input
+                  onChange={(e) => setSearchText(e.target.value)}
                   type="text"
                   placeholder="Search…"
                   className="input input-bordered w-full"
                 />
-                <button className="my-btn hover:bg-transparent hover:text-[#2396DC] transition-all duration-200 ease-in-out">
+                <button
+                  onClick={handleSearch}
+                  className="my-btn hover:bg-transparent hover:text-[#2396DC] transition-all duration-200 ease-in-out"
+                  title="search"
+                >
                   <FaSearch />
                 </button>
               </div>
             </div>
           </div>
+
+          {/* table section for all toys  */}
           <div className="overflow-x-auto rounded-lg box-border border-[10px] border-[#F4F7FC] p-5">
             <table className="table w-full">
               {/* head */}

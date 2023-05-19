@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "./Banner.css";
 
@@ -9,11 +9,17 @@ const Banner = () => {
     <div className="my-container">
       <Swiper
         className="rounded-b-xl"
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         navigation={true}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <div className="w-full h-[80vh] lg:h-full relative">
