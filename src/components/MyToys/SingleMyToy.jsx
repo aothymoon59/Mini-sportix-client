@@ -1,20 +1,32 @@
 import React from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const SingleMyToy = ({ toy }) => {
-  const {
-    toyName,
-    toyPhoto,
-    subCategory,
-    price,
-    quantity,
-    rating,
-    description,
-  } = toy || {};
+const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
+  const { _id, toyName, toyPhoto, subCategory, price, quantity, description } =
+    toy || {};
+
+  const handleDelete = (_id) => {
+    console.log(_id, " deleted");
+
+    fetch(`http://localhost:5000/toys/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
+        }
+        const remaining = myToys.filter((toy) => toy._id !== _id);
+        setMyToys(remaining);
+      });
+  };
   return (
     <>
       <tr>
+        <td>{i + 1}</td>
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
@@ -36,7 +48,10 @@ const SingleMyToy = ({ toy }) => {
           </Link>
         </td>
         <td>
-          <button className="text-xl text-red-500">
+          <button
+            onClick={() => handleDelete(_id)}
+            className="text-xl text-red-500"
+          >
             <FaTrashAlt />
           </button>
         </td>

@@ -46,11 +46,12 @@ const MyToys = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>Toy Image</th>
+                <th>#</th>
+                <th className="no-sticky">Toy Image</th>
                 <th>Toy name</th>
                 <th>Sub category</th>
                 <th>Price</th>
-                <th>Available Quantity</th>
+                <th>Quantity</th>
                 <th>Description</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -58,8 +59,14 @@ const MyToys = () => {
             </thead>
             <tbody>
               {/* row */}
-              {myToys.map((toy) => (
-                <SingleMyToy toy={toy} key={toy._id}></SingleMyToy>
+              {myToys.map((toy, i) => (
+                <SingleMyToy
+                  toy={toy}
+                  myToys={myToys}
+                  setMyToys={setMyToys}
+                  i={i}
+                  key={toy._id}
+                ></SingleMyToy>
               ))}
             </tbody>
           </table>

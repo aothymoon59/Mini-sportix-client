@@ -33,3 +33,7 @@
 th {
     background-color: #EBF8FF !important;
 }
+
+.no-sticky {
+    position: static !important;
+}
