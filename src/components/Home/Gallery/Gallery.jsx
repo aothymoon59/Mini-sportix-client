@@ -56,7 +56,7 @@ const Gallery = () => {
             className="rounded-2xl relative transition duration-200 transform hover:-translate-y-2"
           >
             <img
-              className="object-cover border-8 rounded-2xl border-blue-100 box-border"
+              className="object-cover border-4 rounded-2xl border-blue-100 box-border"
               src={gallery.img}
               alt={gallery.name}
             />

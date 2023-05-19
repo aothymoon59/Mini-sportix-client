@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
+  const { user } = useContext(AuthContext);
+
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,6 +31,25 @@ const AddToy = () => {
       description,
     };
     console.log(createdToy);
+
+    fetch("http://localhost:5000/toy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createdToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toy added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
   return (
     <div className="my-container">
@@ -36,9 +59,20 @@ const AddToy = () => {
           backgroundImage: `url(https://i.ibb.co/6NKx039/section-banner.jpg)`,
         }}
       >
-        <h2 className="text-4xl font-bold text-white">ADD A TOY</h2>
+        <h2 className="text-lg md:text-2xl text-center font-semibold text-white w-[90%] md:w-[50%]">
+          Enhance our sports toy collection by contributing your favorite
+          playthings to our marketplace and sharing them with fellow enthusiasts
+        </h2>
       </div>
       <div className="mt-12 lg:mt-[120px]">
+        <div className="section-header text-center space-y-3 mb-12 lg:mb-16">
+          <h4 className="text-[#2396DC] text-lg sm:text-xl md:text-2xl font-medium">
+            Expand Our Play Zone
+          </h4>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">
+            Add a Sports Toy to the Marketplace
+          </h2>
+        </div>
         <form onSubmit={handleAddToy}>
           {/* toy name and toy photo  */}
           <div className="flex flex-col md:flex-row mb-5 gap-5">
@@ -76,6 +110,7 @@ const AddToy = () => {
               <input
                 type="text"
                 name="sellerName"
+                defaultValue={user?.displayName}
                 placeholder="Seller Name"
                 className="input input-bordered"
                 required
@@ -89,8 +124,9 @@ const AddToy = () => {
                 type="email"
                 name="sellerEmail"
                 placeholder="Seller Email"
+                defaultValue={user?.email}
+                readOnly
                 className="input input-bordered"
-                required
               />
             </div>
           </div>
@@ -101,18 +137,13 @@ const AddToy = () => {
                 <span className="label-text font-semibold">Sub Category</span>
               </label>
               <select
-                defaultValue="default"
+                required
                 name="subCategory"
                 className="select select-bordered"
               >
-                <option disabled value="default">
-                  Pick a sub category
-                </option>
+                <option value="">Pick a sub category</option>
                 <option value="outdoor_games">Outdoor Games</option>
                 <option value="indoor_games">Indoor Games</option>
-                {/* <option value="team_sports">Team Sports</option>
-                <option value="balls">Balls</option>
-                <option value="racket_paddles">Rackets and Paddles</option> */}
                 <option value="ride_toys">Ride On Sports Toys</option>
               </select>
             </div>
@@ -137,7 +168,7 @@ const AddToy = () => {
                 </span>
               </label>
               <input
-                type="text"
+                type="number"
                 name="quantity"
                 placeholder="Available Quantity"
                 className="input input-bordered"
@@ -150,7 +181,7 @@ const AddToy = () => {
               <input
                 type="text"
                 name="rating"
-                placeholder="Rating"
+                placeholder="Rating between 1 to 5"
                 className="input input-bordered"
               />
             </div>
