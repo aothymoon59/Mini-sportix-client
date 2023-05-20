@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import SingleMyToy from "./SingleMyToy";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+
+  useTitle("My Toys");
 
   useEffect(() => {
     fetch(
@@ -52,6 +55,7 @@ const MyToys = () => {
                 <th>Sub category</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Rating</th>
                 <th>Description</th>
                 <th>Update</th>
                 <th>Delete</th>

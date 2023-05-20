@@ -4,8 +4,16 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
-  const { _id, toyName, toyPhoto, subCategory, price, quantity, description } =
-    toy || {};
+  const {
+    _id,
+    toyName,
+    toyPhoto,
+    subCategory,
+    price,
+    quantity,
+    rating,
+    description,
+  } = toy || {};
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -54,6 +62,7 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
         <td>{subCategory}</td>
         <td>$ {price}</td>
         <td>{quantity}</td>
+        <td>{rating}</td>
         <td>{description}</td>
 
         <td>

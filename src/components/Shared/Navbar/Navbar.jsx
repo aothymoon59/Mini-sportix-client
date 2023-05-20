@@ -55,7 +55,7 @@ const Navbar = () => {
               title="Add Toy"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
-              Add Toy
+              Add A Toy
             </NavLink>
           </li>
         </>

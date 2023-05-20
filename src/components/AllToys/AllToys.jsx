@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import SingleToyCard from "./SingleToyCard";
 import { FaSearch } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [allToy, setAllToy] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true); // Initialize the loading state to true
+
+  useTitle("All Toys");
 
   useEffect(() => {
     const fetchToys = async () => {
@@ -106,6 +109,7 @@ const AllToys = () => {
               {/* head */}
               <thead>
                 <tr>
+                  <th>#</th>
                   <th className="no-sticky">Seller name</th>
                   <th>Toy name</th>
                   <th>Sub category</th>
@@ -116,8 +120,8 @@ const AllToys = () => {
               </thead>
               <tbody>
                 {/* row */}
-                {allToy.map((toy) => (
-                  <SingleToyCard toy={toy} key={toy._id}></SingleToyCard>
+                {allToy.map((toy, i) => (
+                  <SingleToyCard toy={toy} i={i} key={toy._id}></SingleToyCard>
                 ))}
               </tbody>
             </table>

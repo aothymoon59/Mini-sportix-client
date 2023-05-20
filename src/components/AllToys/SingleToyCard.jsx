@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleToyCard = ({ toy }) => {
+const SingleToyCard = ({ toy, i }) => {
   const { toyName, sellerName, subCategory, price, quantity } = toy || {};
   return (
     <>
       <tr>
+        <td>{i + 1}</td>
         <td>{sellerName}</td>
         <td>{toyName}</td>
         <td>{subCategory}</td>
