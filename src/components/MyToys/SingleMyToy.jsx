@@ -8,21 +8,35 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
     toy || {};
 
   const handleDelete = (_id) => {
-    console.log(_id, " deleted");
-
-    fetch(`http://localhost:5000/toys/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
-        }
-        const remaining = myToys.filter((toy) => toy._id !== _id);
-        setMyToys(remaining);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toys/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
+            }
+            const remaining = myToys.filter((toy) => toy._id !== _id);
+            setMyToys(remaining);
+          });
+      }
+    });
   };
+
   return (
     <>
       <tr>
@@ -43,7 +57,7 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
         <td>{description}</td>
 
         <td>
-          <Link to="/updateMyToy" className="text-xl">
+          <Link to={`/updateMyToy/${_id}`}>
             <FaEdit />
           </Link>
         </td>

@@ -8,6 +8,7 @@ import AddToy from "../components/AddToy/AddToy";
 import PrivateRoute from "./PrivateRoute";
 import AllToys from "../components/AllToys/AllToys";
 import MyToys from "../components/MyToys/MyToys";
+import UpdateMyToy from "../components/UpdateMyToy/UpdateMyToy";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ const router = createBrowserRouter([
             <MyToys></MyToys>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateMyToy/:id",
+        element: <UpdateMyToy></UpdateMyToy>,
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "/addToy",
