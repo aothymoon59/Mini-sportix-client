@@ -24,7 +24,6 @@ const AllToys = () => {
         console.error("Error fetching toy data:", error);
       }
     };
-
     fetchToys();
   }, []);
 

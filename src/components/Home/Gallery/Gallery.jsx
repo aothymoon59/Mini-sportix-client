@@ -53,7 +53,7 @@ const Gallery = () => {
         {galleries.map((gallery, i) => (
           <div
             key={i}
-            className="rounded-2xl relative transition duration-200 transform hover:-translate-y-2"
+            className="rounded-2xl relative transition duration-200 transform hover:-translate-y-2 cursor-pointer"
           >
             <img
               className="object-cover border-4 rounded-2xl border-blue-100 box-border"

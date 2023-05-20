@@ -52,6 +52,7 @@ const AddToy = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          form.reset();
         }
       });
   };
@@ -129,7 +130,6 @@ const AddToy = () => {
                 name="sellerEmail"
                 placeholder="Seller Email"
                 defaultValue={user?.email}
-                readOnly
                 className="input input-bordered"
               />
             </div>
@@ -146,9 +146,9 @@ const AddToy = () => {
                 className="select select-bordered"
               >
                 <option value="">Pick a sub category</option>
-                <option value="Outdoor games toy">Outdoor Games</option>
-                <option value="Indoor games toy">Indoor Games</option>
-                <option value="Ride toys">Ride On Sports Toys</option>
+                <option value="Outdoor">Outdoor Games</option>
+                <option value="Indoor">Indoor Games</option>
+                <option value="Ride">Ride On Sports Toys</option>
               </select>
             </div>
             <div className="form-control md:w-1/2">

@@ -37,3 +37,15 @@ th {
 .no-sticky {
     position: static !important;
 }
+
+
+.tabs a.tab-active {
+    background-color: #2396DC !important;
+    color: #ffffff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.tabs a {
+    transition: all .3s ease-in-out;
+}
