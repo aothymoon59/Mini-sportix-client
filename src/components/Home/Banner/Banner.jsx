@@ -20,7 +20,7 @@ const Banner = () => {
         navigation={true}
       >
         <SwiperSlide>
-          <div className="w-full h-[80vh] lg:h-full relative">
+          <div className="w-full h-screen sm:h-[80vh] lg:h-full relative">
             <img
               className="w-full"
               src="https://i.ibb.co/3kdQW8m/banner-01.png"

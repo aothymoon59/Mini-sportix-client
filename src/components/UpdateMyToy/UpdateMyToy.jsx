@@ -7,7 +7,7 @@ import useTitle from "../../hooks/useTitle";
 const UpdateMyToy = () => {
   const { user } = useContext(AuthContext);
   const toy = useLoaderData();
-  const { _id, toyName, price, quantity, description } = toy || {};
+  const { _id, toyName, sellerName, price, quantity, description } = toy || {};
 
   useTitle("Update Toy");
 
@@ -105,7 +105,7 @@ const UpdateMyToy = () => {
               <input
                 type="text"
                 name="sellerName"
-                defaultValue={user?.displayName}
+                defaultValue={sellerName}
                 placeholder="Seller Name"
                 className="input input-bordered"
                 readOnly

@@ -10,6 +10,7 @@ import AllToys from "../components/AllToys/AllToys";
 import MyToys from "../components/MyToys/MyToys";
 import UpdateMyToy from "../components/UpdateMyToy/UpdateMyToy";
 import Blogs from "../components/Blogs/Blogs";
+import ViewDetails from "../components/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/toy/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "/login",

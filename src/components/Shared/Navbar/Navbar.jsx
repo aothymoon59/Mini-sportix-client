@@ -73,7 +73,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="border-b-2 ">
+    <div className="border-b-2 bg-blue-50 z-50">
       <div className="navbar my-container py-5">
         <div className="navbar-start">
           <div className="dropdown">

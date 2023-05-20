@@ -66,7 +66,7 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
         <td>{description}</td>
 
         <td>
-          <Link to={`/updateMyToy/${_id}`}>
+          <Link to={`/updateMyToy/${_id}`} title="Edit">
             <FaEdit />
           </Link>
         </td>
@@ -74,6 +74,7 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
           <button
             onClick={() => handleDelete(_id)}
             className="text-xl text-red-500"
+            title="Delete"
           >
             <FaTrashAlt />
           </button>
