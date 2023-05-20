@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import { FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const ViewDetails = () => {
   useTitle("Details");
@@ -71,8 +73,11 @@ const ViewDetails = () => {
                   <span className="font-medium">Description:</span>{" "}
                   {description}
                 </p>
-                <p>Rating: {rating}</p>
-
+                <div className="flex items-center gap-2">
+                  Rating:{" "}
+                  <Rating style={{ maxWidth: 100 }} value={rating} readOnly />{" "}
+                  <span>{rating} / 5</span>
+                </div>
                 <p>
                   <span className="font-medium">Seller name:</span> {sellerName}
                 </p>

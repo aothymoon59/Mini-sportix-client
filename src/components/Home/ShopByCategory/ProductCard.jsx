@@ -2,21 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const ProductCard = ({ toy }) => {
   const { user } = useContext(AuthContext);
-  const {
-    _id,
-    toyName,
-    toyPhoto,
-    sellerName,
-    sellerEmail,
-    subCategory,
-    price,
-    quantity,
-    rating,
-    description,
-  } = toy || {};
+  const { _id, toyName, toyPhoto, price, rating } = toy || {};
 
   const handleAlert = () => {
     if (!user) {
@@ -32,8 +23,11 @@ const ProductCard = ({ toy }) => {
       <div className="card-body">
         <h2 className="card-title">{toyName}</h2>
         <h3 className="text-lg font-semibold">${price}</h3>
-        <p>Rating: {rating}</p>
-        <div className="card-actions justify-end">
+        <div className="flex items-center gap-2">
+          <Rating style={{ maxWidth: 100 }} value={rating} readOnly />{" "}
+          <span>{rating} / 5</span>
+        </div>
+        <div className="card-actions mt-auto justify-end">
           <Link
             to={`/toy/${_id}`}
             onClick={handleAlert}
