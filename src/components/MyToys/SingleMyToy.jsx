@@ -34,7 +34,6 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
             }

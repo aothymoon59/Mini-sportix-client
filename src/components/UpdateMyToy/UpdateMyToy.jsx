@@ -23,7 +23,6 @@ const UpdateMyToy = () => {
       quantity,
       description,
     };
-    console.log(updatedToy);
 
     Swal.fire({
       title: "Are you sure?",
