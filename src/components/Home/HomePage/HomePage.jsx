@@ -5,6 +5,7 @@ import useTitle from "../../../hooks/useTitle";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import NewsLetter from "../Newsletter/NewsLetter";
 
 const HomePage = () => {
   useTitle("Home");
@@ -20,6 +21,7 @@ const HomePage = () => {
       <div data-aos="fade-up">
         <ShopByCategory></ShopByCategory>
       </div>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };

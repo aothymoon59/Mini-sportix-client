@@ -81,10 +81,10 @@ const MyToys = () => {
             className="select bg-[#EBF8FF] select-bordered"
           >
             <option disabled selected>
-              Sort By
+              Sort by price
             </option>
-            <option value="ascending">Price Ascending</option>
-            <option value="descending">Price Descending </option>
+            <option value="ascending">High to low</option>
+            <option value="descending">Low to high</option>
           </select>
         </div>
         {/* table  */}

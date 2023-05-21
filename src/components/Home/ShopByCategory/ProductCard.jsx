@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ProductCard = ({ toy }) => {
   const { user } = useContext(AuthContext);
@@ -15,8 +17,15 @@ const ProductCard = ({ toy }) => {
     }
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
-    <div className="card card-compact bg-blue-50 shadow-xl">
+    <div
+      data-aos="flip-left"
+      className="card card-compact bg-blue-50 shadow-xl"
+    >
       <figure>
         <img className="w-full" src={toyPhoto} alt={toyName} />
       </figure>

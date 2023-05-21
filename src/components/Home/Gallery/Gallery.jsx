@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
   const [galleries, setGalleries] = useState([]);
@@ -19,6 +21,10 @@ const Gallery = () => {
       }
     };
     fetchGallery();
+  }, []);
+
+  useEffect(() => {
+    Aos.init({ duration: 1200 });
   }, []);
 
   if (loading) {
@@ -52,6 +58,7 @@ const Gallery = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {galleries.map((gallery, i) => (
           <div
+            data-aos="flip-right"
             key={i}
             className="rounded-2xl relative transition duration-200 transform hover:-translate-y-2 cursor-pointer"
           >
