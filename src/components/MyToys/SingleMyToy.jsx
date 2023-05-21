@@ -63,8 +63,6 @@ const SingleMyToy = ({ toy, myToys, setMyToys, i }) => {
         <td>$ {price}</td>
         <td>{quantity}</td>
         <td>{rating}</td>
-        <td>{description}</td>
-
         <td>
           <Link to={`/updateMyToy/${_id}`} title="Edit">
             <FaEdit />

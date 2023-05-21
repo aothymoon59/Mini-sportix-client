@@ -2,22 +2,50 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import SingleMyToy from "./SingleMyToy";
 import useTitle from "../../hooks/useTitle";
+import { Puff } from "react-loader-spinner";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [loading, setLoading] = useState(true); // Initialize the loading state to true
+  const [selected, setSelected] = useState("");
 
   useTitle("My Toys");
 
   useEffect(() => {
-    fetch(
-      `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/myToys/${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://b7a11-toy-marketplace-server-side-aothymoon59.vercel.app/myToys/${user?.email}?selected=${selected}`
+        );
+        const data = await response.json();
         setMyToys(data);
-      });
-  }, [user]);
+        setLoading(false); // Update the loading state when data is loaded
+      } catch (error) {
+        // Handle error
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [user, selected]);
+
+  if (loading) {
+    // Return a loading indicator while data is loading
+    return (
+      <div className="flex items-center mt-10 justify-center h-[400px]">
+        <Puff
+          height="80"
+          width="80"
+          radius={1}
+          color="#1d4ed8"
+          ariaLabel="puff-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="my-container">
@@ -43,6 +71,22 @@ const MyToys = () => {
             My Arena of Sports Toy Treasures
           </h2>
         </div>
+        <div className="form-control  w-fit mb-6">
+          {/* <label className="label">
+            <span className="label-text font-semibold">Sub Category</span>
+          </label> */}
+          <select
+            onChange={(e) => setSelected(e.target.value)}
+            name="sort"
+            className="select bg-[#EBF8FF] select-bordered"
+          >
+            <option disabled selected>
+              Sort By
+            </option>
+            <option value="ascending">Price Ascending</option>
+            <option value="descending">Price Descending </option>
+          </select>
+        </div>
         {/* table  */}
         <div className="overflow-x-auto rounded-lg box-border border-[10px] border-[#F4F7FC] p-5">
           <table className="table w-full">
@@ -56,7 +100,6 @@ const MyToys = () => {
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Rating</th>
-                <th>Description</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
