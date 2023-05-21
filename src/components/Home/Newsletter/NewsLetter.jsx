@@ -3,7 +3,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 
 const NewsLetter = () => {
   return (
-    <div className="mt-16 lg:mt-[120px] bg-blue-50 py-20">
+    <div className="mt-16 lg:mt-[120px] py-20">
       <div className="my-container">
         <div className="flex flex-col md:flex-row gap-12 md:mx-20">
           <div className="md:w-1/2">

@@ -6,6 +6,7 @@ import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import NewsLetter from "../Newsletter/NewsLetter";
+import Delivery from "../Delivery/Delivery";
 
 const HomePage = () => {
   useTitle("Home");
@@ -22,6 +23,7 @@ const HomePage = () => {
         <ShopByCategory></ShopByCategory>
       </div>
       <NewsLetter></NewsLetter>
+      <Delivery></Delivery>
     </div>
   );
 };
