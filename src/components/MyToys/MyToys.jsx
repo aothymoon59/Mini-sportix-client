@@ -72,9 +72,6 @@ const MyToys = () => {
           </h2>
         </div>
         <div className="form-control  w-fit mb-6">
-          {/* <label className="label">
-            <span className="label-text font-semibold">Sub Category</span>
-          </label> */}
           <select
             onChange={(e) => setSelected(e.target.value)}
             name="sort"
@@ -93,7 +90,7 @@ const MyToys = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>#</th>
+                <th className="no-sticky">#</th>
                 <th className="no-sticky">Toy Image</th>
                 <th>Toy name</th>
                 <th>Sub category</th>

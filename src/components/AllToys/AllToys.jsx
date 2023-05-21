@@ -108,7 +108,7 @@ const AllToys = () => {
               {/* head */}
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="no-sticky">#</th>
                   <th className="no-sticky">Seller name</th>
                   <th>Toy name</th>
                   <th>Sub category</th>
