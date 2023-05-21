@@ -7,6 +7,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import NewsLetter from "../Newsletter/NewsLetter";
 import Delivery from "../Delivery/Delivery";
+import CustomerReview from "../CustomerReview/CustomerReview";
 
 const HomePage = () => {
   useTitle("Home");
@@ -22,6 +23,7 @@ const HomePage = () => {
       <div data-aos="fade-up">
         <ShopByCategory></ShopByCategory>
       </div>
+      <CustomerReview></CustomerReview>
       <NewsLetter></NewsLetter>
       <Delivery></Delivery>
     </div>
