@@ -18,7 +18,7 @@ const NewsLetter = () => {
             <div className="input-group">
               <input
                 type="email"
-                placeholder="E-main Address"
+                placeholder="E-mail Address"
                 className="input input-bordered w-full"
               />
               <button className="my-btn hover:bg-transparent hover:text-[#2396DC] transition-all duration-200 ease-in-out">

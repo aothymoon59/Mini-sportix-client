@@ -126,10 +126,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </Link>
+                    <Link className="justify-between">Profile</Link>
                   </li>
                   <li>
                     <Link>Settings</Link>
