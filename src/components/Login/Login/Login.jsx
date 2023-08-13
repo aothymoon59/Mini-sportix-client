@@ -79,6 +79,7 @@ const Login = () => {
         toast.success("Successfully login With Google");
         setError("");
         navigate(from, { replace: true });
+        console.log(loggedUser);
       })
       .catch((err) => {
         setError(err.message);
